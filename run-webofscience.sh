@@ -1,0 +1,28 @@
+python3.8 -u main.py   \
+    --lr 1e-3   \
+    --epochs 2000 \
+    --weight_decay 1e-4   \
+    --lr_scheduler_type linear   \
+    --dropout_prob 0.0   \
+    --e_dim 32   \
+    --quant_loss_weight 0.01   \
+    --beta 0.25   \
+    --num_emb_list  33 256 256 256 \
+    --layers 2048 1024 512 256 128 64   \
+    --device cuda:0   \
+    --eval_step 10   \
+    --dataset wos  \
+    --embedding_model SFR-Embedding-2_R   \
+    --init_method full_init \
+    --batch_size 1024   \
+    --architecture normal   \
+    --sk_epsilons 0.0 0.0 0.0 0.0   \
+    --column_name embedding_normalize   \
+    --init_class_embedding_codebook_level 0   \
+    --custom_loss_weight 0.005   \
+    --filter_dataset_first_id 0 \
+    --ckpt_dir wos11967  \
+    --init_codebook_with_description_embedding   \
+    --target_codebook_generate_method system   \
+    --dataset_save_dir WebOfScience/wos11967-train-test/wos_train-task0 \
+    --target_codebook_system_datasets xxxxx

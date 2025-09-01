@@ -1,0 +1,96 @@
+ python3.8 -u /mnt/disk5/hewenting_nfs_serverdir/githubs/zhengbw0324-LC-Rec/index-tree/main.py   \
+  --lr 1e-3   \
+  --epochs 500   \
+  --weight_decay 1e-4   \
+  --lr_scheduler_type linear   \
+  --dropout_prob 0.0   \
+  --e_dim 32   \
+  --quant_loss_weight 0.01   \
+  --beta 0.25   \
+  --num_emb_list 5 256 256 256 \
+  --layers 2048 1024 512 256 128 64   \
+  --device cuda:0   \
+  --eval_step 10   \
+  --dataset hwt-dataset   \
+  --embedding_model SFR-Embedding-2_R   \
+  --init_method kmeans_init   \
+  --batch_size 1024   \
+  --architecture normal   \
+  --sk_epsilons 0.0 0.0 0.0 0.0   \
+  --column_name embedding_normalize   \
+  --init_class_embedding_codebook_level 0   \
+  --custom_loss_weight 0.005   \
+  --ckpt_dir /home_new/hewenting/checkpoint_gpu9/hwt-dataset-train-test/train_cb1st   \
+  --init_codebook_with_description_embedding   \
+  --target_codebook_generate_method system   \
+  --dataset_save_dir /home_new/hewenting/embeddings-20250427/Amazon-hwt/train-task12_deduplicate_22068/ \
+  --target_codebook_system_datasets xxx 
+
+
+  python3.8 -u /mnt/disk5/hewenting_nfs_serverdir/githubs/zhengbw0324-LC-Rec/index-tree/main.py   \
+ --lr 1e-3   \
+ --epochs 500   \
+ --weight_decay 1e-4   \
+ --lr_scheduler_type linear   \
+ --dropout_prob 0.0   \
+ --e_dim 32   \
+ --beta 0.25    \
+ --batch_size 1024   \
+ --sk_epsilons 0.0 0.0 0.0 0.0   \
+ --num_quantizers 4     \
+ --layers 2048 1024 512 256 128 64   \
+ --device cuda:0   \
+ --eval_step 10   \
+ --dataset hwt-dataset   \
+ --embedding_model SFR-Embedding-2_R    \
+ --column_name embedding_normalize   \
+ --architecture tree_residual_uniform     \
+ --init_method load_from_ckpt-but_reinit_cb234_using_kmeans     \
+ --init_codebook_with_description_embedding   \
+ --init_class_embedding_codebook_level 1     \
+ --quant_loss_weight 0.00005   \
+ --custom_loss_weight 0.0001   \
+ --custom_loss_type l1   \
+ --custom_codebook_residual 1     \
+ --num_emb_list 5 6 8 9 15 14 256 256  \
+ --target_codebook_generate_method system\
+ --ckpt_dir /home_new/hewenting/checkpoint_gpu9/hwt-dataset-train-test/train_cb2nd  \
+ --dataset_save_dir  /home_new/hewenting/embeddings-20250427/Amazon-hwt/train-task12_deduplicate_22068/ \
+ --ckpt_path xxxxxx \
+ --target_codebook_system_datasets xxxx
+
+
+
+  python3.8 -u /mnt/disk5/hewenting_nfs_serverdir/githubs/zhengbw0324-LC-Rec/index-tree/main.py     \
+  --lr 1e-2     \
+  --epochs 1000   \
+  --weight_decay 1e-4     \
+  --lr_scheduler_type linear     \
+  --dropout_prob 0.0     \
+  --e_dim 32     \
+  --beta 0.25      \
+  --batch_size 1024     \
+  --sk_epsilons 0.0 0.0 0.0 0.0     \
+  --num_quantizers 4     \
+  --layers 2048 1024 512 256 128 64     \
+  --device cuda:0     \
+  --eval_step 10     \
+  --dataset hwt-dataset     \
+  --embedding_model SFR-Embedding-2_R      \
+  --column_name embedding_normalize     \
+  --architecture tree_residual_uniform     \
+  --kmeans_iters 4     \
+  --init_method load_from_ckpt-but_reinit_cb34_using_kmeans     \
+  --target_codebook_generate_method user     \
+  --init_codebook_with_description_embedding     \
+  --init_class_embedding_codebook_level 2     \
+  --quant_loss_weight 0.00000001     \
+  --custom_loss_weight 0.000001     \
+  --custom_loss_type l1     \
+  --custom_codebook_residual 1     \
+  --target_codebook_generate_method system   \
+  --ckpt_dir /home_new/hewenting/checkpoint_gpu9/hwt-dataset-train-test/fix_12cb_train3cb/   \
+  --dataset_save_dir /home_new/hewenting/embeddings-20250427/Amazon-hwt/train-task12_deduplicate_22068/   \
+  --num_emb_list 5 6 8 9 15 14 6 6 6 8 3 3 10 7 3 2 2 5 4 1 5 7 2 3 3 4 2 2 2 5 12 4 2 8 6 10 5 3 12 4 2 6 4 6 8 8 10 9 5 8 7 3 3 7 3 1 6 2 256   \
+  --ckpt_path xxxxx\
+  --target_codebook_system_datasets xxxx
