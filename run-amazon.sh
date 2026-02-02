@@ -1,4 +1,4 @@
- python3.8 -u /mnt/disk5/hewenting_nfs_serverdir/githubs/zhengbw0324-LC-Rec/index-tree/main.py   \
+ python3.8 -u main.py   \
   --lr 1e-3   \
   --epochs 500   \
   --weight_decay 1e-4   \
@@ -24,10 +24,10 @@
   --init_codebook_with_description_embedding   \
   --target_codebook_generate_method system   \
   --dataset_save_dir /home_new/hewenting/embeddings-20250427/Amazon-hwt/train-task12_deduplicate_22068/ \
-  --target_codebook_system_datasets xxx 
+  --target_codebook_system_datasets xxx
 
 
-  python3.8 -u /mnt/disk5/hewenting_nfs_serverdir/githubs/zhengbw0324-LC-Rec/index-tree/main.py   \
+ python3.8 -u main.py   \
  --lr 1e-3   \
  --epochs 500   \
  --weight_decay 1e-4   \
@@ -61,7 +61,7 @@
 
 
 
-  python3.8 -u /mnt/disk5/hewenting_nfs_serverdir/githubs/zhengbw0324-LC-Rec/index-tree/main.py     \
+  python3.8 -u main.py     \
   --lr 1e-2     \
   --epochs 1000   \
   --weight_decay 1e-4     \

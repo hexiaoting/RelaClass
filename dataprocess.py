@@ -12,34 +12,14 @@ import pickle
 import torch.nn.functional as F
 from torch import Tensor
 import argparse
-from instruct import amazon_531_instruct_task123,amazon_531_instruct_task12
-from instruct import wos_task_en, dbpedia_task_en,normal_task
-from instruct import amazon_531_food_instruct_task,amazon_531_toysgames_instruct_task,amazon_531_beauty_instruct_task,amazon_531_healthpersonalcare_instruct_task,amazon_531_babyproducts_instruct_task,amazon_531_petsupplies_instruct_task,amazon_531_beauty_instruct_task_v2,amazon_531_beauty_hair_instruct_task, amazon_531_beauty_hair_instruct_task_v3
+
+from instruct import wos_task_en
+
 from instruct import hwt_dataset_all_instruct_task1, hwt_dataset_all_instruct_task12
-from instruct import wos5736_instruct_task12, wos5736_instruct_task2, wos_instruct_task12, wos_instruct_task1, wos11967_instruct_task12, wos11967_instruct_task12_v2
-from instruct import amazon_531_food_simple_instruct_task, amazon_531_food_instruct_task_12, amazon_531_petsupplies_instruct_task1
-from instruct import amazon_531_petsupplies_cat_instruct_task2
-from instruct import dbpedia_task0, dbpedia_task12, dbpedia_task1
+from instruct import wos_instruct_task12, wos_instruct_task1, wos11967_instruct_task12, wos11967_instruct_task12_v2
 from instruct import hwt_dataset_265_instruct_task12
 
 type_2_task={
-    'amazon531-0':amazon_531_food_instruct_task,
-    'amazon531-0-task1':amazon_531_food_simple_instruct_task,
-    'amazon531-0-task12':amazon_531_food_instruct_task_12,
-    'amazon531-3':amazon_531_toysgames_instruct_task,
-    'amazon531-10':amazon_531_beauty_instruct_task,
-    'amazon531-10-64':amazon_531_beauty_hair_instruct_task,
-    'amazon531-10-64-v3':amazon_531_beauty_hair_instruct_task_v3,
-    'amazon531-10-v2':amazon_531_beauty_instruct_task_v2,
-    'amazon531-23':amazon_531_healthpersonalcare_instruct_task,
-    'amazon531-40':amazon_531_babyproducts_instruct_task,
-    'amazon531-169':amazon_531_petsupplies_instruct_task    ,
-    'amazon531-169-task1': amazon_531_petsupplies_instruct_task1,
-    'amazon531-169-cat-task2': amazon_531_petsupplies_cat_instruct_task2,
-    'amazon531-task-123':amazon_531_instruct_task123,
-    'amazon531-task-12':amazon_531_instruct_task12,
-    'wos5736-task-12':wos5736_instruct_task12,
-    'wos5736-task-2':wos5736_instruct_task2,
     'wos-task-12':wos_instruct_task12,
     'wos-task-1':wos_instruct_task1,
     'wos11967-task-12':wos11967_instruct_task12,
@@ -48,9 +28,6 @@ type_2_task={
     'hwtdataset-all-task-12': hwt_dataset_all_instruct_task12,
     'hwtdataset-amazon-265-task-12': hwt_dataset_265_instruct_task12,
     'task-0':normal_task,
-    'dbpedia-task0':dbpedia_task0,
-    'dbpedia-task1':dbpedia_task1,
-    'dbpedia-task12':dbpedia_task12,
 }
 #Amazon子分类个数分别为16, 17, 6, 7, 12, 6
 task = None
@@ -67,16 +44,8 @@ def parse_args():
     return parser.parse_args()
 
 def get_task(dataset_name, task_type):
-    if dataset_name == "Amazon-531":
-        if task_type in type_2_task.keys():
-            task = type_2_task[task_type]
-        else:
-            raise Exception(f"Not support this task_type {task_type}")
-    elif dataset_name == "WebOfScience":
+    if dataset_name == "WebOfScience":
         task = type_2_task[task_type]
-    elif dataset_name == "DBPedia-298":
-        task = type_2_task[task_type]
-        #task = dbpedia_task_en
     elif dataset_name == "hwt_dataset":
         task = type_2_task[task_type]
     else:
