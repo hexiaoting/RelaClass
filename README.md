@@ -12,7 +12,11 @@ We use two datasets, Amazon and WOS, and both datasets are in the ./data folder 
  
  `bash run-webofscience.sh`
 
+ Note: 
+ * parameter `target_codebook_system_datasets` is the embedding dataset path for the current level'category prototypes using SFR-Embedding-2_R
+ * parameter `ckpt_path` refers to the model obtained after the previous level of codebook training is completed. So we only use it when training the second-level and subsequent codebooks.
 
+The trained models are saved under ckpt directory.
 
 # Run LLM
 `bash run_zeroshot_llm.sh`
